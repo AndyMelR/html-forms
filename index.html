@@ -16,12 +16,11 @@
 <body>
     <div class="container d-flex justify-content-center mt-3">
         <div class="card">
-            <div class="card-header">
-                Payment form example
+            <div class="card-header" style="height:50px;">
+                <h5 class="card-title">Payment form example</h5>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <form action="" method="post" novalidate="novalidate">
+            <div class=" card-body">
+                    <form id="creditForm" action=" https://cat-fact.herokuapp.com">
                         <div class="row g-3">
                             <div class="alert alert-danger" role="alert">
                                 Some fields are missing
@@ -30,28 +29,27 @@
                         <div class="row g-3">
                             <div class="col-md-4">
                                 <label for="cc-number" class="control-label">Card number</label>
-                                <input id="cc-number" name="cc-number" type="tel" placeholder="XXXXXXXXXXXXXX"
+                                <input id="cc-number" name="cc-number" type="tel" placeholder="XXXXXXXXXXXXXX" maxlength="16"
                                     class="form-control cc-number identified visa" value="" data-val="true"
                                     data-val-required="Please enter the card number"
                                     data-val-cc-number="Please enter a valid card number" autocomplete="cc-number">
                                 <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="x_card_code" class="control-label">CVC</label>
                                 <div class="input-group">
-                                    <input id="x_card_code" name="x_card_code" type="tel" placeholder="0000" class="form-control cc-cvc"
-                                        value="" data-val="true" data-val-required="Please enter the security code"
+                                    <input id="x_card_code" name="x_card_code" type="tel" placeholder="000" maxlength="3"
+                                        class="form-control cc-cvc" value="" data-val="true"
+                                        data-val-required="Please enter the security code"
                                         data-val-cc-cvc="Please enter a valid security code" autocomplete="off">
                                 </div>
                             </div>
                             <div class="col-md-1 mx-0 d-flex flex-row-reverse align-items-center">
                                 <i class="fa-solid fa-dollar-sign"></i>
                             </div>
-                            <div class="col-md-3 ps-0">
-                               
-                                    <label for="inputAmount" class="control-label">Amount</label>
-                                    <input type="email" class="form-control" id="inputAmount" placeholder="Amount">
-                                
+                            <div class="col-md-4 ps-0">
+                                <label for="inputAmount" class="control-label">Amount</label>
+                                <input type="number" class="form-control" id="inputAmount" placeholder="#,###.00">
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group has-success">
@@ -94,67 +92,53 @@
                                 <input type="text" class="form-control" id="inputZip">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputPayment" class="form-label ">We accept:</label>
-                                <div class="form-group bg-secondary ">
-                                    <ul class="list-inline">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio1" value="option1" checked>
-                                            <label class="form-check-label" for="inlineRadio1">
-                                                <li class="list-inline-item"><i class="fa-brands fa-cc-mastercard"></i>
-                                                </li>
-                                            </label>
+                                    <div class="mb-1">
+                                        <label><strong>We accept:</strong></label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 bg-secondary rounded mt-2 ms-2 p-3 ">
+                                                <input class="form-check-input" type="radio" name="cards" value="mastercard"
+                                                    checked /><label class="form-check-label" for="flexRadioDefault1">
+                                                    <i class="fa-brands fa-cc-mastercard fa-xl mx-1"></i>
+                                                </label>
+                                                <input class="form-check-input" type="radio" name="cards"
+                                                    value="visa" /><label class="form-check-label" for="flexRadioDefault1">
+                                                    <i class="fa-brands fa-cc-visa fa-xl mx-1"></i>
+                                                </label>
+                                                <input class="form-check-input" type="radio" name="color"
+                                                    value="dinners" /><label class="form-check-label"
+                                                    for="flexRadioDefault1">
+                                                    <i class="fa-brands fa-cc-diners-club fa-xl mx-1"></i>
+                                                </label>
+                                                <input class="form-check-input" type="radio" name="color"
+                                                    value="amex" /><label class="form-check-label" for="flexRadioDefault1">
+                                                    <i class="fa-brands fa-cc-amex fa-xl mx-1"></i>
+                                                </label>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">
-                                                <li class="list-inline-item"><i class="fa-brands fa-cc-visa "></i></li>
-                                            </label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">
-                                                <li class="list-inline-item"><i
-                                                        class="fa-brands fa-cc-diners-club "></i></li>
-                                            </label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">
-                                                <li class="list-inline-item">
-                                                <li class="list-inline-item"><i class="fa-brands fa-cc-amex "></i></li>
-                </li>
-                </label>
-        </div>
-        </ul>
-    </div>
-
-
-
-    </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label for="exampleFormControlTextarea3">Message</label>
-            <textarea class="form-control" id="exampleFormControlTextarea3" rows="4"></textarea>
+                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="mb-1"><strong>Message:</strong></div>
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Leave a comment here"
+                                            id="floatingTextarea2" style="height:100px;">
+                                        </textarea>
+                                        <label  for="floatingTextarea2"></label>
+                                        Add any notes here.
+                                    </div>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+            <div class="card-footer text-end">
+                <button type="button" class="btn btn-secondary me-2">Close</button>
+                <button type="submit" class="btn btn-primary ms-1" form="creditForm">Submit</button>
+            </div>
         </div>
     </div>
 
-
-    </div>
-    </form>
-    </li>
-    <li class="list-group-item">
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-secondary me-md-2" type="button">Close</button>
-            <button class="btn btn-primary" type="button">Send</button>
-        </div>
-    </li>
-    </ul>
-    </div>
-    </div>
+   
+   
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
